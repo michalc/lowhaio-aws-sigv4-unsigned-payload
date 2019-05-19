@@ -1,4 +1,4 @@
-# lowhaio-aws-sigv4
+# lowhaio-aws-sigv4 [![CircleCI](https://circleci.com/gh/michalc/lowhaio-aws-sigv4.svg?style=svg)](https://circleci.com/gh/michalc/lowhaio-aws-sigv4)
 
 AWS Signature Version 4 signing for lowhaio
 

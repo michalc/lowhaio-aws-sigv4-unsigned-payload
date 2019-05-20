@@ -21,7 +21,7 @@ setuptools.setup(
     python_requires='>=3.6.0',
     test_suite='test',
     tests_require=[
-        'lowhaio~=0.0.54',
+        'lowhaio~=0.0.61',
     ],
     classifiers=[
         'Programming Language :: Python :: 3',

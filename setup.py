@@ -7,21 +7,18 @@ def long_description():
 
 
 setuptools.setup(
-    name='lowhaio_aws_sigv4',
-    version='0.0.1',
+    name='lowhaio_aws_sigv4_unsigned_payload',
+    version='0.0.0',
     author='Michal Charemza',
     author_email='michal@charemza.name',
-    description='AWS Signature Version 4 signing for lowhaio',
+    description='AWS Signature Version 4 signing for lowhaio, but with UNSIGNED-PAYLOAD',
     long_description=long_description(),
     long_description_content_type='text/markdown',
     url='https://github.com/michalc/lowhaio-aws-sigv4',
     py_modules=[
-        'lowhaio_aws_sigv4',
+        'lowhaio_aws_sigv4_unsigned_payload',
     ],
     python_requires='>=3.6.0',
-    install_requires=[
-        'lowhaio',
-    ],
     test_suite='test',
     tests_require=[
         'lowhaio~=0.0.54',

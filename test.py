@@ -6,7 +6,7 @@ from lowhaio import (
     Pool,
     buffered,
 )
-from lowhaio_aws_sigv4 import (
+from lowhaio_aws_sigv4_unsigned_payload import (
     signed,
 )
 
@@ -41,15 +41,17 @@ class TestIntegration(unittest.TestCase):
         signed_request = signed(
             request, credentials=credentials, service='s3', region='eu-west-1',
         )
+        headers = ((b'content-length', str(26 * 10000).encode()),)
         code, _, body = await signed_request(
-            b'PUT', 'https://s3-eu-west-1.amazonaws.com/lowhaio/test', body=body)
+            b'PUT', 'https://lowhaio.s3-eu-west-1.amazonaws.com/test',
+            headers=headers, body=body,)
         body_bytes = await buffered(body)
 
         self.assertEqual(code, b'200')
         self.assertEqual(body_bytes, b'')
 
         code, _, body = await signed_request(
-            b'GET', 'https://s3-eu-west-1.amazonaws.com/lowhaio/test')
+            b'GET', 'https://lowhaio.s3-eu-west-1.amazonaws.com/test')
         body_bytes = await buffered(body)
 
         self.assertEqual(code, b'200')

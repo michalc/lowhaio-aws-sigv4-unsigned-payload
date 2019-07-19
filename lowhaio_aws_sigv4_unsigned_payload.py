@@ -22,7 +22,6 @@ def signed(request, credentials, service, region):
             access_key_id, secret_access_key, headers + auth_headers, service, region,
             parsed_url.hostname, method.decode(), parsed_url.path, params, body_hash,
         )
-        print(all_headers)
 
         return await request(
             method, url, params=params, headers=all_headers,
